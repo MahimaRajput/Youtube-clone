@@ -8,6 +8,12 @@ pipeline {
                     url: 'https://github.com/MahimaRajput/Youtube-clone'
                 }
             }
+            stage('Npm'){
+            when { expression { params.action == 'create'}}    
+            steps{
+                npmInstall()
+            }
+        }
     }
 
 }
